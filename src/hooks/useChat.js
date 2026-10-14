@@ -72,10 +72,12 @@ export function useChat() {
       try {
         const replyText = await sendMessage(trimmed, { history });
         setMessages((prev) => [...prev, createMessage('assistant', replyText)]);
-      } catch {
+      } catch (err) {
+        const detail =
+          err instanceof Error && err.message ? ` ${err.message}` : '';
         setMessages((prev) => [
           ...prev,
-          createMessage('assistant', ERROR_REPLY),
+          createMessage('assistant', `${ERROR_REPLY}${detail}`),
         ]);
       } finally {
         setIsTyping(false);

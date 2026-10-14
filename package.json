@@ -4,16 +4,25 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently -n api,web -c green,blue \"npm run dev:server\" \"wait-on http://127.0.0.1:3000/health -t 30000 && npm run dev:web\"",
+    "dev:web": "vite",
+    "dev:server": "node server/index.js",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start:server": "node server/index.js"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "wait-on": "^8.0.1",
     "vite": "^6.0.3"
   }
 }

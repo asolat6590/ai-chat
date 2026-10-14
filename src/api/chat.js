@@ -50,9 +50,15 @@ export async function sendMessage(text, options = {}) {
     body: JSON.stringify({ message: text, history }),
   });
 
-  if (!res.ok) throw new Error('Failed to send message');
-
-  const data = await res.json();
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    const hint =
+      (typeof data.details === 'string' && data.details) ||
+      (typeof data.error === 'string' && data.error) ||
+      (typeof data.error?.message === 'string' && data.error.message) ||
+      `Ошибка сервера (${res.status})`;
+    throw new Error(hint);
+  }
   const reply = data.reply ?? data.message;
   if (typeof reply !== 'string') {
     throw new Error('Invalid response from chat API');

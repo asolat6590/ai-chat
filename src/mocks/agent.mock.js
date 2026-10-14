@@ -3,8 +3,8 @@
 /** @type {ChatAgent} */
 export const MOCK_AGENT = {
   id: 'agent-1',
-  name: 'ИИ-ассистент',
-  initials: 'ИИ',
+  name: 'Консультант BeautyLine',
+  initials: 'BL',
   status: 'online',
   avatarUrl: '/agent-avatar.png?v=2',
 };
