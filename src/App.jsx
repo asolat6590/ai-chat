@@ -16,12 +16,21 @@ function App() {
 
       <main className="demo-main">
         <section className="demo-hero">
-          <h1>Косметика и уход с умным консультантом</h1>
-          <p>
-            Демо-магазин с чатом в стиле Jivo: ассистент отвечает на вопросы о
-            косметике, а по остальным темам направляет к продавцу по телефону.
-          </p>
-          <a className="demo-cta" href="#catalog">Смотреть каталог</a>
+          <img
+            className="demo-hero__image"
+            src="/hero-makeup.png?v=1"
+            alt="Косметика и кисти для макияжа на столе"
+            width={960}
+            height={640}
+          />
+          <div className="demo-hero__copy">
+            <h1>Косметика и уход с умным консультантом</h1>
+            <p>
+              Демо-магазин с чатом в стиле Jivo: ассистент отвечает на вопросы о
+              косметике, а по остальным темам направляет к продавцу по телефону.
+            </p>
+            <a className="demo-cta" href="#catalog">Смотреть каталог</a>
+          </div>
         </section>
 
         <section id="catalog" className="demo-section">
@@ -52,6 +61,14 @@ function App() {
               <p>Шампуни, маски и уход для окрашенных и повреждённых волос.</p>
             </li>
             <li>
+              <img
+                className="demo-cards__image"
+                src="/catalog/makeup.png?v=2"
+                alt="Макияж — нанесение теней"
+                width={400}
+                height={240}
+                loading="lazy"
+              />
               <h3>Макияж</h3>
               <p>Тон, румяна, помады — подбор по типу кожи и финишу.</p>
             </li>

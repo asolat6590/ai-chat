@@ -66,8 +66,24 @@ a:hover {
 }
 
 .demo-hero {
-  padding: 64px 0 48px;
-  text-align: center;
+  padding: 40px 0 48px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 32px;
+  align-items: center;
+  text-align: left;
+}
+
+.demo-hero__image {
+  display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.demo-hero__copy {
+  min-width: 0;
 }
 
 .demo-hero h1 {
@@ -77,10 +93,27 @@ a:hover {
 }
 
 .demo-hero p {
-  margin: 0 auto 24px;
-  max-width: 560px;
+  margin: 0 0 24px;
+  max-width: 460px;
   color: #6b7280;
   font-size: 1.0625rem;
+}
+
+@media (max-width: 720px) {
+  .demo-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-top: 32px;
+  }
+
+  .demo-hero__image {
+    height: 200px;
+  }
+
+  .demo-hero p {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .demo-cta {

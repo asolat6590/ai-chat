@@ -255,6 +255,7 @@ async function generateWithModel(modelName, contents, apiKey) {
 export async function generateAgentReply(message, history = []) {
   const apiKey = process.env.GEMINI_API_KEY?.trim();
   if (!apiKey) {
+    if (mockFallbackEnabled()) return mockReply(message);
     throw new Error('GEMINI_API_KEY is not configured');
   }
 

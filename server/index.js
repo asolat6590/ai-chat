@@ -16,6 +16,6 @@ app.post('/chat', handleChat);
 app.listen(port, () => {
   console.log(`Chat API listening on http://localhost:${port}`);
   if (!process.env.GEMINI_API_KEY) {
-    console.warn('Warning: GEMINI_API_KEY is not set — POST /chat will fail.');
+    console.warn('Warning: GEMINI_API_KEY is not set — POST /chat отвечает демо-текстом про уход.');
   }
 });

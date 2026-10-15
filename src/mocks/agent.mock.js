@@ -6,5 +6,5 @@ export const MOCK_AGENT = {
   name: 'Консультант BeautyLine',
   initials: 'BL',
   status: 'online',
-  avatarUrl: '/agent-avatar.png?v=2',
+  avatarUrl: '/agent-avatar.png?v=3',
 };
